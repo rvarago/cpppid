@@ -1,4 +1,4 @@
-.PHONY: all test compile gen dep mk
+.PHONY: all test compile gen dep mk clean
 
 all: compile
 
@@ -16,3 +16,6 @@ dep: mk
 
 mk:
 	-mkdir build
+
+clean:
+	rm -rf build
