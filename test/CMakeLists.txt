@@ -4,6 +4,7 @@ add_executable(cpppid_test
 	cpppid_test.cpp
 
 	controller_derivative_test.cpp
+	controller_integral_test.cpp
 	controller_proportional_test.cpp
 )
 
