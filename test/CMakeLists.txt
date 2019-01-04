@@ -2,6 +2,8 @@ set(CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR})
 
 add_executable(cpppid_test
 	cpppid_test.cpp
+
+	controller_derivative_test.cpp
 	controller_proportional_test.cpp
 )
 
