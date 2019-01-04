@@ -1,7 +1,13 @@
 set(CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR})
 
 add_executable(cpppid_test
-	pid_test.cpp
+	cpppid_test.cpp
+
+	controller_derivative_test.cpp
+	controller_integral_test.cpp
+	controller_proportional_test.cpp
+
+	composer_adder_test.cpp
 )
 
 target_compile_features(cpppid_test
