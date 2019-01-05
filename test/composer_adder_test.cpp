@@ -11,7 +11,7 @@ TEST(CppPIDadder, shouldAddTwoProportionalControllers) {
     auto ctrl_proportional_1 = proportional<int>{2};
     auto ctrl_proportional_2 = proportional<int>{5};
 
-    auto ctrl = adder<proportional<int>, proportional<int>>{
+    auto ctrl = adder<int, proportional<int>, proportional<int>>{
         ctrl_proportional_1, ctrl_proportional_2
     };
 
@@ -27,7 +27,7 @@ TEST(CppPIDadder, shouldComposeToPID) {
     auto ctrl_derivative = derivative<double, double, double>{5.4, 1.0};
     auto ctrl_integral = integral<double, double, double>{7.8, 1.0};
 
-    auto ctrl_pid = adder<proportional<double>, derivative<double, double, double>, integral<double, double, double>>{
+    auto ctrl_pid = adder<double, proportional<double>, derivative<double, double, double>, integral<double, double, double>>{
         ctrl_proportional, ctrl_derivative, ctrl_integral
     };
 

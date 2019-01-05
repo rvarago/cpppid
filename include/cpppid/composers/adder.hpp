@@ -9,7 +9,7 @@
 namespace cpppid {
     namespace composers {
 
-        template <typename... Controllers>
+        template <typename TotalOutput, typename... Controllers>
         class adder {
             using ControllersCollection = std::tuple<Controllers...>;
 
@@ -19,10 +19,10 @@ namespace cpppid {
 
                 template <typename Error>
                 auto operator()(Error const& current_error) {
-                    decltype(std::get<0>(m_controllers)(current_error)) total_output{};
+                    auto total_output = TotalOutput{};
 
                     utils::each(m_controllers, [&total_output, &current_error](auto & ctrl) {
-                        total_output += ctrl(current_error);
+                        total_output += TotalOutput{ctrl(current_error)};
                     });
 
                     return total_output;
