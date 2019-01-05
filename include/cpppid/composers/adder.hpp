@@ -19,16 +19,10 @@ namespace cpppid {
 
                 template <typename Error>
                 auto operator()(Error const& current_error) {
-                    decltype(std::get<0>(m_controllers)(current_error)) total_output;
-                    auto first_iteration{true};
+                    decltype(std::get<0>(m_controllers)(current_error)) total_output{};
 
-                    utils::each(m_controllers, [&first_iteration, &total_output, &current_error](auto & ctrl) {
-                        if (first_iteration) {
-                            first_iteration = false;
-                            total_output = ctrl(current_error);
-                        } else {
-                            total_output += ctrl(current_error);
-                        }
+                    utils::each(m_controllers, [&total_output, &current_error](auto & ctrl) {
+                        total_output += ctrl(current_error);
                     });
 
                     return total_output;
