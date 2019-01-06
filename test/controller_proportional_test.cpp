@@ -29,3 +29,9 @@ TEST(CppPIDproportional, shouldReturnDoubleIfErrorIsDouble) {
     EXPECT_DOUBLE_EQ(ctrl(0.0), 0.0);
     EXPECT_DOUBLE_EQ(ctrl(1.5), 4.5);
 }
+
+TEST(CppPIDproportional, shouldInferTemplateArg) {
+    auto ctrl = proportional<>{2.0};
+
+    EXPECT_DOUBLE_EQ(ctrl(1), 2.0);
+}

@@ -6,7 +6,7 @@
 namespace cpppid {
     namespace controllers {
 
-        template <typename Kp>
+        template <typename Kp = double>
         class proportional {
             public:
                 proportional(Kp factor) : m_factor{std::move(factor)} {}
