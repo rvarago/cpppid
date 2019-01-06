@@ -6,13 +6,14 @@ add_executable(cpppid_test
 	controller_derivative_test.cpp
 	controller_integral_test.cpp
 	controller_proportional_test.cpp
+	controller_onoff_test.cpp
 
 	composer_adder_test.cpp
 )
 
 target_compile_features(cpppid_test
 	PRIVATE
-		cxx_std_14
+		cxx_std_17
 )
 
 if (NOT MSVC)
