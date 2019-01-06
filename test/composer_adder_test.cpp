@@ -37,3 +37,19 @@ TEST(CppPIDadder, shouldComposeToPID) {
     EXPECT_NEAR(ctrl_pid(1), -772.1, 1);
     EXPECT_NEAR(ctrl_pid(100), 784.7, 1);
 }
+
+TEST(CppPIDadder, shouldComposeToPIDWithDefaultTemplateArg) {
+    auto ctrl_proportional = proportional<>{2.5};
+    auto ctrl_derivative = derivative<>{5.4, 1};
+    auto ctrl_integral = integral<>{7.8, 1};
+
+    auto ctrl_pid = adder<proportional<>, derivative<>, integral<>>{
+        ctrl_proportional, ctrl_derivative, ctrl_integral
+    };
+
+    EXPECT_NEAR(ctrl_pid(-100), -1570.0, 1);
+    EXPECT_NEAR(ctrl_pid(-1), -255.7, 1);
+    EXPECT_NEAR(ctrl_pid(0), -782.4, 1);
+    EXPECT_NEAR(ctrl_pid(1), -772.1, 1);
+    EXPECT_NEAR(ctrl_pid(100), 784.7, 1);
+}
