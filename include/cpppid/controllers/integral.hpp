@@ -6,7 +6,7 @@
 namespace cpppid {
     namespace controllers {
 
-        template <typename Ki, typename TimeInterval, typename AccumulatedError>
+        template <typename Ki = double, typename TimeInterval = int, typename AccumulatedError = double>
         class integral {
             public:
                 integral(Ki factor, TimeInterval interval)
