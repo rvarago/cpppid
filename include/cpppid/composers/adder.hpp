@@ -9,7 +9,7 @@
 namespace cpppid {
     namespace composers {
 
-        template <typename TotalOutput, typename... Controllers>
+        template <typename TotalOutput = double, typename... Controllers>
         class adder {
             using ControllersCollection = std::tuple<Controllers...>;
 
