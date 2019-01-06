@@ -22,7 +22,7 @@ namespace cpppid {
                     auto total_output = TotalOutput{};
 
                     utils::each(m_controllers, [&total_output, &current_error](auto & ctrl) {
-                        total_output += TotalOutput{ctrl(current_error)};
+                        total_output += static_cast<TotalOutput>(ctrl(current_error));
                     });
 
                     return total_output;
