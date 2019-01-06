@@ -9,7 +9,7 @@ namespace cpppid {
         template <typename Kp = double>
         class proportional {
             public:
-                proportional(Kp factor) : m_factor{std::move(factor)} {}
+                explicit proportional(Kp factor) : m_factor{std::move(factor)} {}
 
                 template <typename Error>
                 auto operator()(Error const& current_error) {

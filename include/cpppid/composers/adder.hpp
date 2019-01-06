@@ -14,7 +14,7 @@ namespace cpppid {
             using ControllersCollection = std::tuple<Controllers...>;
 
             public:
-                adder(Controllers... controllers)
+                explicit adder(Controllers... controllers)
                     : m_controllers{std::make_tuple(controllers...)} {}
 
                 template <typename Error>

@@ -9,7 +9,7 @@ namespace cpppid {
         template <typename Ki = double, typename TimeInterval = int, typename AccumulatedError = double>
         class integral {
             public:
-                integral(Ki factor, TimeInterval interval)
+                explicit integral(Ki factor, TimeInterval interval)
                     : m_factor{std::move(factor)},
                       m_interval{std::move(interval)},
                       m_accumulatedError{AccumulatedError{}} {}
