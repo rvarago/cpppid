@@ -14,7 +14,7 @@ TEST(CppPIDintegral, shouldReturnProportionalToTheIntegralOfTheError) {
 }
 
 TEST(CppPIDintegral, shouldInferTemplateArg) {
-    auto ctrl = integral<>{2.0, 1};
+    auto ctrl = integral{2.0, 1};
 
     EXPECT_DOUBLE_EQ(ctrl(1), 2.0);
 }

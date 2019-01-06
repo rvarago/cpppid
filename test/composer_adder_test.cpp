@@ -39,11 +39,11 @@ TEST(CppPIDadder, shouldComposeToPID) {
 }
 
 TEST(CppPIDadder, shouldComposeToPIDWithDefaultTemplateArg) {
-    auto ctrl_proportional = proportional<>{2.5};
-    auto ctrl_derivative = derivative<>{5.4, 1};
-    auto ctrl_integral = integral<>{7.8, 1};
+    auto ctrl_proportional = proportional{2.5};
+    auto ctrl_derivative = derivative{5.4, 1};
+    auto ctrl_integral = integral{7.8, 1};
 
-    auto ctrl_pid = adder<proportional<>, derivative<>, integral<>>{
+    auto ctrl_pid = adder{
         ctrl_proportional, ctrl_derivative, ctrl_integral
     };
 
