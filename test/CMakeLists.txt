@@ -12,7 +12,7 @@ add_executable(cpppid_test
 
 target_compile_features(cpppid_test
 	PRIVATE
-		cxx_std_14
+		cxx_std_17
 )
 
 if (NOT MSVC)
