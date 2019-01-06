@@ -18,3 +18,9 @@ TEST(CppPIDderivative, shouldDefaultToInitialErrorOfZero) {
 
     EXPECT_EQ(ctrl(2), 4);
 }
+
+TEST(CppPIDderivative, shouldInferTemplateArg) {
+    auto ctrl = derivative<>{2.0, 1};
+
+    EXPECT_DOUBLE_EQ(ctrl(1), 2.0);
+}

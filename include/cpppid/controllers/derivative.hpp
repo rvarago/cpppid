@@ -6,7 +6,7 @@
 namespace cpppid {
     namespace controllers {
 
-        template <typename Kd, typename TimeInterval, typename PreviousError>
+        template <typename Kd = double, typename TimeInterval = int, typename PreviousError = double>
         class derivative {
             public:
                 derivative(Kd factor, TimeInterval interval, PreviousError initial_error = PreviousError{})
