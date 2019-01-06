@@ -1,5 +1,5 @@
 # cpppid
-A composable library based on templates to implement control loops in C++14.
+A composable library based on templates to implement control loops in C++17.
 
 By composing basic control functions, for instance:
 * Proportional

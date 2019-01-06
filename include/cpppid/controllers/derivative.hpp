@@ -9,7 +9,7 @@ namespace cpppid {
         template <typename Kd = double, typename TimeInterval = int, typename PreviousError = double>
         class derivative {
             public:
-                derivative(Kd factor, TimeInterval interval, PreviousError initial_error = PreviousError{})
+                explicit derivative(Kd factor, TimeInterval interval, PreviousError initial_error = PreviousError{})
                     : m_factor{std::move(factor)},
                       m_interval{std::move(interval)},
                       m_previousError{std::move(initial_error)} {}

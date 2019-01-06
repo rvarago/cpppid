@@ -20,7 +20,7 @@ TEST(CppPIDderivative, shouldDefaultToInitialErrorOfZero) {
 }
 
 TEST(CppPIDderivative, shouldInferTemplateArg) {
-    auto ctrl = derivative<>{2.0, 1};
+    auto ctrl = derivative{2.0, 1};
 
     EXPECT_DOUBLE_EQ(ctrl(1), 2.0);
 }
