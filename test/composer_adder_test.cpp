@@ -53,3 +53,15 @@ TEST(CppPIDadder, shouldComposeToPIDWithDefaultTemplateArg) {
     EXPECT_NEAR(ctrl_pid(1), -772.1, 1);
     EXPECT_NEAR(ctrl_pid(100), 784.7, 1);
 }
+
+TEST(CppPIDadder, shouldReturnDoubleIfNotSpecifiedOtherwise) {
+    auto ctrl_proportional = proportional{2.5};
+    auto ctrl_integral = integral{1, 1};
+
+    auto ctrl_pi = adder{
+        ctrl_proportional,ctrl_integral
+    };
+
+    EXPECT_NEAR(ctrl_pi(-5), -17.5, 1);
+    EXPECT_NEAR(ctrl_pi(5), 12.5, 1);
+}
