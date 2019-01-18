@@ -17,13 +17,9 @@ namespace cpppid {
 
                 template <typename Error>
                 auto operator()(Error const& current_error) {
-                    auto total_output = TotalOutput{};
-
-                    std::apply([&total_output, &current_error](auto &... ctrl) {
-                        total_output += (static_cast<TotalOutput>(ctrl(current_error)) + ...);
+                    return std::apply([&current_error](auto &... ctrl) {
+                        return (static_cast<TotalOutput>(ctrl(current_error)) + ...);
                     }, m_controllers);
-
-                    return total_output;
                 }
 
             private:
