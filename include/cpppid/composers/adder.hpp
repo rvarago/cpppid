@@ -4,8 +4,6 @@
 #include <utility>
 #include <tuple>
 
-#include "cpppid/utils/tuple_helper.hpp"
-
 namespace cpppid {
     namespace composers {
 
@@ -21,9 +19,9 @@ namespace cpppid {
                 auto operator()(Error const& current_error) {
                     auto total_output = TotalOutput{};
 
-                    utils::each(m_controllers, [&total_output, &current_error](auto & ctrl) {
-                        total_output += static_cast<TotalOutput>(ctrl(current_error));
-                    });
+                    std::apply([&total_output, &current_error](auto &... ctrl) {
+                        total_output += (static_cast<TotalOutput>(ctrl(current_error)) + ...);
+                    }, m_controllers);
 
                     return total_output;
                 }
