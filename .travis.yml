@@ -1,0 +1,10 @@
+language: cpp
+
+services:
+  - docker
+
+before_install:
+  - make env
+
+script:
+  - make env-test
