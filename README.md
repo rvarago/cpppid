@@ -1,5 +1,10 @@
 # cpppid
+
 A composable library based on templates to implement control loops in C++17.
+
+[![Build Status](https://travis-ci.org/rvarago/cpppid.svg?branch=master)](https://travis-ci.org/rvarago/cpppid)
+
+## Description
 
 By composing basic control functions, for instance:
 * Proportional
