@@ -40,3 +40,11 @@ make test
 ```
 make clean
 ```
+
+## Run tests inside a Docker container
+
+Optionally, it's possible to run the tests for cpppid inside a Docker container by running:
+
+```
+make env-test
+```
