@@ -1,6 +1,12 @@
-.PHONY: all test compile gen dep mk clean
+.PHONY: all env env-test test compile gen dep mk clean
 
 all: compile
+
+env:
+	docker build -t cpppid:0.1 .
+
+env-test: env
+	docker run --rm cpppid:0.1
 
 test: all
 	cd build && ctest .
