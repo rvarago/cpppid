@@ -8,8 +8,8 @@ namespace cpppid {
 
         template <typename InputLimit, typename OutputLimit>
         struct boundary {
-            InputLimit input;
-            OutputLimit output;
+            InputLimit const input;
+            OutputLimit const output;
         };
 
         template <typename InputLimit = double, typename OutputLimit = double>
