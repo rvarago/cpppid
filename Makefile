@@ -21,7 +21,7 @@ gen: dep
 	cd build && cmake ..
 
 dep: mk
-	cd build && conan install .. -pr ../profile_x86_64
+	cd build && conan install .. --build=missing -pr ../profile_x86_64
 
 mk:
 	-mkdir build
