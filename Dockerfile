@@ -6,4 +6,4 @@ WORKDIR cpppid
 
 COPY . .
 
-CMD ["make", "test"]
+CMD ["/bin/bash"]

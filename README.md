@@ -51,5 +51,13 @@ make clean
 Optionally, it's possible to run the tests for cpppid inside a Docker container by running:
 
 ```
-make env-test
+make env # create docker image
+make env-run # logs in the container
+make test
+```
+
+Or:
+
+```
+make env-test # the same as: make env env-run make test
 ```
