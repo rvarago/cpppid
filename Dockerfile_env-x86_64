@@ -5,6 +5,8 @@ USER root
 RUN sudo apt-get update -qq \
 	&& apt-get install -y --no-install-recommends qemu-user
 
+ENV PROFILE x86_64
+
 WORKDIR cpppid
 
 COPY . .

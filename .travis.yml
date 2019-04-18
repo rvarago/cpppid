@@ -4,4 +4,4 @@ services:
   - docker
 
 script:
-  - make env-test
+  - make env-x86_64-test
