@@ -34,6 +34,8 @@ The _Makefile_ wraps the commands to download dependencies (Conan), generate the
 make
 ```
 
+It assumes that the default profile (*profiles/x86_64*) applies to your build, if not, then you can specify your profile by appending _PROFILE=_.
+
 * Run the unit tests:
 
 ```
@@ -61,3 +63,5 @@ Or:
 ```
 make env-x86_64-test # the same as: make env-x86_64 env-x86_64-run make test
 ```
+
+Or you can build and test for armv7 by simply changing the mentions to *x86_64* to *armv7* in the command above.

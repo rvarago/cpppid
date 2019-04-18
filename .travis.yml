@@ -5,3 +5,4 @@ services:
 
 script:
   - make env-x86_64-test
+  - make env-armv7-test

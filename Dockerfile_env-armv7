@@ -1,0 +1,15 @@
+FROM conanio/gcc8-armv7:1.14.1
+
+USER root
+
+RUN sudo apt-get update -qq \
+	&& apt-get install -y --no-install-recommends qemu-user
+
+ENV PROFILE ../profiles/armv7
+ENV RUNNER "qemu-arm -L /usr/arm-linux-gnueabi"
+
+WORKDIR cpppid
+
+COPY . .
+
+CMD ["/bin/bash"]
