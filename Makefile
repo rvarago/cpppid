@@ -2,10 +2,6 @@ ifndef PROFILE
 override PROFILE="../profiles/x86_64"
 endif
 
-ifndef RUNNER
-override RUNNER=
-endif
-
 .PHONY: all env-x86_64 env-x86_64-test env-x86_64-run env-armv7 env-armv7-test env-armv7-run test compile gen dep mk clean
 
 all: compile
