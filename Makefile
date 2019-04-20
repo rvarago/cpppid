@@ -2,29 +2,30 @@ ifndef PROFILE
 override PROFILE="../profiles/x86_64"
 endif
 
+ARCHS		:= x86_64 armv7
+ENVS		:= $(patsubst %,env-%,${ARCHS})
+ENVS_TEST	:= $(patsubst %,%-test,${ENVS})
+ENVS_RUN  	:= $(patsubst %,%-run,${ENVS})
+
 .PHONY: all env-x86_64 env-x86_64-test env-x86_64-run env-armv7 env-armv7-test env-armv7-run test compile gen dep mk clean
 
 all: compile
 
-env-x86_64:
-	docker build -t cpppid_$@:0.1 -f Dockerfile_$@ .
-
 env-x86_64-test: env-x86_64
-	docker run --rm -t cpppid_$^:0.1 make test
-
 env-x86_64-run: env-x86_64
-	docker run -it --rm cpppid_$^:0.1
+env-armv7-test: env-armv7
+env-armv7-run: env-armv7
 
-env-armv7:
+${ENVS}:
 	docker build -t cpppid_$@:0.1 -f Dockerfile_$@ .
 
-env-armv7-test: env-armv7
-	docker run --rm -t cpppid_$^:0.1 make test
+${ENVS_TEST}:
+	docker run --rm -t cpppid_$<:0.1 make test
 
-env-armv7-run: env-armv7
-	docker run -it --rm cpppid_$^:0.1
+${ENVS_RUN}:
+	docker run -it --rm cpppid_$<:0.1
 
-test: all
+test: compile
 	cd build && ${RUNNER} ./test/cpppid_test
 
 compile: gen
